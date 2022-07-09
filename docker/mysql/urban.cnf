@@ -1,0 +1,17 @@
+[mysqld]
+max_allowed_packet=1000M
+key_buffer_size = 128M
+thread_stack = 128K
+thread_cache_size = 8
+max_heap_table_size = 256M
+query_cache_limit = 4M
+query_cache_size = 512M
+
+innodb_buffer_pool_size = 2G 
+
+# This is crucial to avoid checkpointing all the time:
+innodb_buffer_pool_size=2G
+innodb_log_file_size=1280M
+
+# If you have control on who consumes the DB, and you don't use hostnames when you've set up permissions - this can help as well.
+skip_name_resolve
