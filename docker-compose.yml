@@ -27,17 +27,6 @@ services:
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     ports:
       - '80:80'
-  # nextapp:
-  #   build:
-  #     context: ./
-  #     dockerfile: ./docker/nextapp/Dockerfile
-  #   environment:
-  #     - NODE_ENV=development
-  #     - CHOKIDAR_USEPOLLING=true
-  #   volumes:
-  #     - /urban-app-next/node_modules
-  #     - ./urban-app-next:/urban-app-next
-  #   ports:
-  #     - "3000:3000"
+      - '3000:3000'
 volumes:
   db:

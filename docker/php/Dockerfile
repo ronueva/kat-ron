@@ -16,3 +16,6 @@ RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/late
 RUN chmod +x drush.phar
 
 RUN mv drush.phar /usr/local/bin/drush
+
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
+RUN apt-get install -y nodejs

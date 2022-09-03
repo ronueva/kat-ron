@@ -16,12 +16,20 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.7",
         "drupal/admin_toolbar": "^3.1",
-        "drupal/bootstrap_barrio": "5.5",
+        "drupal/bootstrap_barrio": "^5.5",
+        "drupal/bootstrap_sass": "^5.0",
         "drupal/core-composer-scaffold": "^9.4",
         "drupal/core-project-message": "^9.4",
         "drupal/core-recommended": "^9.4",
         "drupal/core-vendor-hardening": "^9.4",
+        "drupal/devel": "^4.1",
+        "drupal/devel_kint_extras": "^1.0",
+        "drupal/libraries": "^3.0@beta",
+        "drupal/paragraphs": "^1.14",
+        "drupal/simple_gmap": "^3.0",
+        "drupal/webform": "^6.1",
         "drush/drush": "^11.0"
     },
     "conflict": {
@@ -35,11 +43,17 @@
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
             "drupal/core-vendor-hardening": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "cweagans/composer-patches": true
         },
         "sort-packages": true
     },
     "extra": {
+        "patches": {
+            "drupal/core": {
+                "subtheme library issue": "https://www.drupal.org/files/issues/2021-07-12/2642122-141.patch"
+            }
+        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "./"
