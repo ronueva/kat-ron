@@ -12,20 +12,20 @@
   Drupal.behaviors.bootstrap_sass = {
     attach: function(context, settings) {
 
-      // new fullScroll({
-      //   // parent container
-      //   mainElement : 'full_page',
-      //   // content section
-      //   sections : 'section',
-      //   // animation speed
-      //   animateTime : 0.7,
-      //   // easing for animation
-      //   animateFunction : 'ease',
-      //   // current position
-      //   currentPosition: 0,
-      //   // display dots navigation
-      //   displayDots: false,
-      // });
+      new fullScroll({
+        // parent container
+        mainElement : 'full_page',
+        // content section
+        sections : 'section',
+        // animation speed
+        animateTime : 0.7,
+        // easing for animation
+        animateFunction : 'ease',
+        // current position
+        currentPosition: 0,
+        // display dots navigation
+        displayDots: false,
+      });
 
     }
   };
