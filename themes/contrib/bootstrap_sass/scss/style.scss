@@ -58,10 +58,13 @@ div {
           }
           .hero-img {
             z-index: 1;
-            img {
-              height: 100vh;
-              object-fit: cover;
-              margin: 0;
+            .field--name-field-landing-image {
+              height: 100%;
+              img {
+                min-height: 100%;
+                object-fit: cover;
+                margin: 0;
+              }
             }
             .bg-overlay {
               position: absolute;
@@ -79,7 +82,6 @@ div {
 
 footer {
   padding: 0 !important;
-  height: 100vh;
   * {
     font-family: 'Didact Gothic';
   }
