@@ -1,0 +1,4 @@
+administer katron configuration:
+  title: 'Administer katron_bak configuration'
+  description: 'Optional description.'
+  restrict access: true

@@ -1,0 +1,5 @@
+name: katron_bak
+type: module
+description: Modifications for wedding-themed website
+package: Custom
+core_version_requirement: ^9 || ^10
