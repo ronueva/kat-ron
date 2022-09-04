@@ -3,6 +3,8 @@
  * Global utilities.
  *
  */
+
+
 (function($, Drupal) {
 
   'use strict';
@@ -10,7 +12,21 @@
   Drupal.behaviors.bootstrap_sass = {
     attach: function(context, settings) {
 
-      // Custom code here
+      new fullScroll({
+        // parent container
+        mainElement : 'full_page',
+        // content section
+        sections : 'section',
+        // animation speed
+        animateTime : 0.7,
+        // easing for animation
+        animateFunction : 'ease',
+        // current position
+        currentPosition: 0,
+        // display dots navigation
+        displayDots: false,
+      });
+
     }
   };
 
@@ -33,7 +49,7 @@ function initMap() {
     position: {lat: 14.301414716867429, lng: 121.4899881756956},
     map,
     title: "Spacio Caliraya",
-    icon: "http://katron.com/sites/default/files/2022-09/marker.svg"
+    icon: drupalSettings.katron.mapIconPath
   });
 
   marker.addListener("click", () => {

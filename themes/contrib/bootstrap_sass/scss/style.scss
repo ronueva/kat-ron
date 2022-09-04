@@ -23,6 +23,10 @@ img {
   display: none;
 }
 
+.dialog-off-canvas-main-canvas {
+  height: 100%;
+}
+
 div {
   &#main {
     padding-top: 0 !important;
@@ -57,6 +61,7 @@ div {
             img {
               height: 100vh;
               object-fit: cover;
+              margin: 0;
             }
             .bg-overlay {
               position: absolute;
@@ -73,18 +78,18 @@ div {
 }
 
 footer {
+  padding: 0 !important;
+  height: 100vh;
   * {
     font-family: 'Didact Gothic';
   }
   .container-fluid {
     padding: 0;
+    height: 100%;
   }
   #map {
     width: 100%;
-    height: 35vh;
-    @include media-breakpoint-down(md) {
-      height: 40vh;
-    }
+    height: 60vh;
   }
   #block-customkatronfooter {
     >div {
