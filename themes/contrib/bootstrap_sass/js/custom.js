@@ -11,7 +11,13 @@
 
   Drupal.behaviors.bootstrap_sass = {
     attach: function(context, settings) {
-
+      new fullpage('#full_page', {
+        licenseKey: "76JKK-Q57N6-H960H-64MEJ-WZWUQ",
+        navigation: true,
+        responsiveWidth: 700,
+        parallax: true,
+        touchSensitivity: 100
+      });
     }
   };
 
