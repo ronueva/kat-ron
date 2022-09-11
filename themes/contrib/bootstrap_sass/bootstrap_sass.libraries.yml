@@ -4,6 +4,7 @@ global-styling:
     js/bootstrap.min.js: { weight: -48 }
     js/barrio.js: {}
     js/custom.js: { scope: footer }
+    js/libraries/slick.js: {scope: header}
     https://maps.googleapis.com/maps/api/js?key=AIzaSyBfZXusO3LfvUvq3rrnW4Dke9NHQ4z0N1E&callback=initMap&v=weekly: { type: external }
     https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.10/fullpage.min.js: {type: external}
   css:

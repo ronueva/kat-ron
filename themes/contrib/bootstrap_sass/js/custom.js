@@ -16,6 +16,15 @@
         normalScrollElements: '#map',
         scrollOverflowReset: true
       });
+      $(".field--name-field-landing-image").slick({
+        infinite: true,
+        speed: 0,
+        useCSS: true,
+        autoplay: true,
+        autoplaySpeed: 900,
+        useTransform: true,
+        arrows: false,
+      })
     }
   };
 
