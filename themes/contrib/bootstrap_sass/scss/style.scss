@@ -78,17 +78,23 @@ div {
           }
           .hero-img {
             z-index: 1;
-            .field__item {
-              height: 100vh;
-              margin: 0;
-              width: 100%;
-              background: transparent;
-              float: left;
-              img {
-                width: 100%;
+            .field--name-field-landing-image {
+              height: 100%;
+              .slick-track, .slick-list {
                 height: 100%;
-                object-fit: cover;
-                display: block;
+              }
+              .field__item {
+                height: 100%;
+                margin: 0;
+                width: 100%;
+                background: transparent;
+                float: left;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                }
               }
             }
             .bg-overlay {
@@ -107,7 +113,7 @@ div {
 
 footer {
   padding: 0 !important;
-  height: 100vh;
+  height: 100%;
   * {
     font-family: 'Didact Gothic';
   }

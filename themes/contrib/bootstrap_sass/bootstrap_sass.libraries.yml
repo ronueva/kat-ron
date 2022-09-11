@@ -10,7 +10,7 @@ global-styling:
   css:
     component:
       css/style.css: {}
-      css/full-page-scroll.css: {}
+      https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.11/fullpage.min.css: {type: external}
     theme:
       https://fonts.googleapis.com/css?family=Didact%20Gothic: { type: external }
   dependencies:
