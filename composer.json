@@ -28,7 +28,9 @@
         "drupal/devel_kint_extras": "^1.0",
         "drupal/libraries": "^3.0@beta",
         "drupal/paragraphs": "^1.14",
+        "drupal/restui": "^1.21",
         "drupal/simple_gmap": "^3.0",
+        "drupal/taxonomy_import": "^2.0",
         "drupal/webform": "^6.1",
         "drush/drush": "^11.0"
     },
@@ -52,6 +54,9 @@
         "patches": {
             "drupal/core": {
                 "subtheme library issue": "https://www.drupal.org/files/issues/2021-07-12/2642122-141.patch"
+            },
+            "drupal/taxonomy_import": {
+                "failed to read file": "https://www.drupal.org/files/issues/2022-11-07/text-csv-mimetype-3300149-5.patch"
             }
         },
         "drupal-scaffold": {

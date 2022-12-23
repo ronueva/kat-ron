@@ -36,11 +36,11 @@ img {
 }
 
 div {
-  &#main {
+  * {
+    font-family: 'Didact Gothic';
+  }
+  &#hero {
     padding-top: 0 !important;
-    * {
-      font-family: 'Didact Gothic';
-    }
     a {
       text-decoration: none;
     }
@@ -59,6 +59,7 @@ div {
           }
           .hero-txt {
             margin-top: auto;
+            margin-bottom: auto;
             * {
               text-align: center;
               color: #fff;
@@ -105,8 +106,73 @@ div {
               background: #000;
             }
           }
+          .hero-video {
+            .field {
+              margin: 0;
+            }
+            .field__label {
+              display: none;
+            }
+            div {
+              height: 100%;
+            }
+            video {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+              display: block;
+            }
+          }
         }
       }
+    }
+  }
+  &#rsvp {
+    overflow-y: auto;
+    h2 {
+      font-weight: 400;
+      font-size: 64px;
+      //@media (max-height: 667px) {
+      //  font-size: 32px;
+      //}
+    }
+    p {
+      width: 100%;
+      @include media-breakpoint-up(sm) {
+        width: 80%;
+      }
+    }
+    .no-margin-xs {
+      margin: 0 !important;
+    }
+    .disabled {
+      opacity: .5;
+    }
+    #submit-rsvp {
+      outline: none;
+      border: none;
+      &:active {
+        opacity: .5;
+      }
+      &:disabled {
+        opacity: .5;
+      }
+    }
+  }
+}
+
+.custom-checkbox {
+  input[type=checkbox] {
+    display:none;
+    &:checked {
+      & +label {
+        background: url(../images/checked.png) no-repeat left;
+        background-size: 24px
+      }
+    }
+    & +label {
+      background: url(../images/unchecked.png) no-repeat left;
+      background-size: 24px;
     }
   }
 }

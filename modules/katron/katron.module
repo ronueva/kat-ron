@@ -1,6 +1,10 @@
 <?php
 
 use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
+use Drupal\taxonomy\TermStorage;
+use Drupal\katron\Utils;
+use Drupal\node\Entity\Node;
 
 /**
  * @file
@@ -14,4 +18,22 @@ function katron_preprocess_node(&$variables) {
 
   $variables['#attached']['drupalSettings']['katron']['mapIconPath'] = \Drupal::service('file_url_generator')->generateAbsoluteString($variables['node']->field_map_icon_svg->entity->getFileUri());
 
+}
+
+function katron_preprocess_page(&$variables) {
+  $path = \Drupal::service('path.current')->getPath();
+
+  if (strpos($path, "taxonomy") !== FALSE) {
+    $variables["hero"] = views_embed_view("frontpage", "hero_block");
+
+//    $field_hero_video = Node::load(1)->get("field_hero_video")->getString();
+//    $media_entity_load = Media::load($field_hero_video);
+//    $variables["hero"]["hero_video"] = \Drupal::service('file_url_generator')->generateAbsoluteString($media_entity_load->field_media_video_file->entity->getFileUri());
+  }
+}
+
+function katron_preprocess_taxonomy_term(&$variables) {
+  $invitees = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadChildren($variables["term"]->get("tid")->value);
+  $variables['groupId'] = $variables["term"]->get("tid")->value;
+  $variables['invitees'] = $invitees;
 }

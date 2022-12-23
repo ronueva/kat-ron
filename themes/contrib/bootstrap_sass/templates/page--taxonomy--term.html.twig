@@ -1,0 +1,28 @@
+<div id="full_page" class="w-100 h-100 m-0 p-0">
+  <div id="hero" class="{{ container }} py-0 px-4 px-sm-5 vh-100 section">
+    {{ hero }}
+  </div>
+  <div id="rsvp" class="{{ container }} mt-3 px-4 px-sm-5 vh-100 section">
+    <div class="row h-100">
+      <div class="col-12 col-sm-6 d-flex mt-sm-0">
+        <div class="d-block mt-auto mb-auto">
+          <h2 class="rsvp-title">RSVP</h2>
+          <p class="fs-6">It all begins with an idea. Maybe you want to launch a business. Maybe you
+            want to turn a hobby into something more. Or maybe you have a creative project to share with the world.
+            Whatever it is, the way you tell your story online can make all the difference.</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 overflow-auto d-flex mt-sm-0">
+        <div class="mt-auto mb-auto w-100">
+          {{ page.content }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="d-flex flex-column mt-5 section vh-100">
+    <div id="map"></div>
+    <div class="p-5 mt-auto">
+      {{ page.footer_first }}
+    </div>
+  </footer>
+</div>

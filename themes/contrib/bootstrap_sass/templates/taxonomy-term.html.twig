@@ -1,0 +1,17 @@
+<div class="content" data-id="{{ groupId }}">
+  {% for invitee in invitees %}
+    <div class="form-check custom-checkbox px-0 ">
+      <input class="form-check-input invitee" type="checkbox"
+        {% if content.field_status['#items'].value != 1 %} disabled {% endif %}
+        {% if invitee.field_present.value == 1 %} checked {% endif %}
+             id="invitee_{{ invitee.tid.value }}"
+             data-id="{{ invitee.tid.value }}">
+      <label class="form-check-label py-2 py-sm-4 ps-5 w-100" for="invitee_{{ invitee.tid.value }}">
+        {{ invitee.name.value }}
+      </label>
+    </div>
+  {% endfor %}
+  <button id="submit-rsvp" class="w-100 p-3 bg-black text-white text-align-center mt-5" style="cursor: pointer" {% if content.field_status['#items'].value != 1 %}disabled{% endif %}>
+    Submit
+  </button>
+</div>
