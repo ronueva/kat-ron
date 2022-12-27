@@ -11,6 +11,9 @@
 
   Drupal.behaviors.bootstrap_sass = {
     attach: function(context, settings) {
+      let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      let triggeredAutoScrollDown = false;
+
       if (drupalSettings.path.isFront) {
         new fullpage('#full_page', {
           licenseKey: "76JKK-Q57N6-H960H-64MEJ-WZWUQ",
@@ -68,18 +71,39 @@
 
       })
 
-      let promise = $(".hero-video video").get(0).play()
+      let video = $(".hero-video video")
 
-      if (promise !== undefined) {
-        promise.catch(error => {
-          console.log(error)
-          // Auto-play was prevented
-          // Show a UI element to let the user manually start playback
-        }).then(() => {
-          console.log("autoplayed")
-          // Auto-play started
-        });
+      if (isSafari) {
+        video.get(0).controls = true
+        video.get(0).muted = false
+      } else {
+        video.get(0).controls = false
+        video.get(0).muted = true
+        video.get(0).autoplay = true
       }
+
+      setTimeout(() => {
+        $(".scroll-down").show()
+      }, 10000)
+
+      $(".scroll-down").on("click", function () {
+        console.log("here")
+        $([document.documentElement, document.body]).animate({
+          scrollTop: $("#title-area").offset().top
+        });
+        triggeredAutoScrollDown = true
+      })
+
+      video.on("ended", function () {
+        if (!triggeredAutoScrollDown) {
+          $([document.documentElement, document.body]).animate({
+            scrollTop: $("#title-area").offset().top
+          }, 1000);
+          triggeredAutoScrollDown = true
+        }
+        this.play();
+      })
+
     }
   };
 

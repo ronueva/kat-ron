@@ -15,7 +15,7 @@
 * @ingroup themeable
 */
 #}
-<video {{ attributes }} autoplay muted playsinline loop>
+<video {{ attributes }} playsinline poster="/sites/default/files/2022-12/video_thumbnail.jpg">
   {% for file in files %}
     <source {{ file.source_attributes }} />
   {% endfor %}

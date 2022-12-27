@@ -1,9 +1,23 @@
 <div id="full_page" class="w-100 h-100 m-0 p-0">
   <div id="hero" class="{{ container }} py-0 px-4 px-sm-5 vh-100 section">
     {{ hero }}
+    <div class="scroll-down"></div>
   </div>
-  <div id="rsvp" class="{{ container }} mt-3 px-4 px-sm-5 vh-100 section">
+  <div id="title-area" class="{{ container }} pt-5 px-4 min-vh-100 h-100 section">
     <div class="row h-100">
+      <div class="col-12 col-lg-4 mt-sm-0 order-lg-1">
+        {{ page.featured_top }}
+      </div>
+      <div class="col-12 col-lg-4 mt-5 mt-sm-0 order-lg-0 text-lg-start text-align-center">
+        {{ page.featured_bottom_first }}
+      </div>
+      <div class="col-12 col-lg-4 mt-sm-0 order-lg-2 text-lg-end text-align-center">
+        {{ page.featured_bottom_second }}
+      </div>
+    </div>
+  </div>
+  <div id="rsvp" class="{{ container }} mt-3 px-4 px-sm-5 min-vh-100 h-100 section d-flex">
+    <div class="row h-100 my-auto">
       <div class="col-12 col-sm-6 d-flex mt-sm-0">
         <div class="d-block mt-auto mb-auto">
           <h2 class="rsvp-title">RSVP</h2>
@@ -12,8 +26,8 @@
             Whatever it is, the way you tell your story online can make all the difference.</p>
         </div>
       </div>
-      <div class="col-12 col-sm-6 overflow-auto d-flex mt-sm-0">
-        <div class="mt-auto mb-auto w-100">
+      <div class="col-12 col-sm-6 d-flex mt-sm-0">
+        <div class="mt-auto mb-auto w-100 h-100">
           {{ page.content }}
         </div>
       </div>
