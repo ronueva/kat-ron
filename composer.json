@@ -30,6 +30,9 @@
         "drupal/paragraphs": "^1.14",
         "drupal/restui": "^1.21",
         "drupal/simple_gmap": "^3.0",
+        "drupal/slick": "^2.7",
+        "drupal/svg_image": "^1.16",
+        "drupal/svg_image_field": "^2.1",
         "drupal/taxonomy_import": "^2.0",
         "drupal/webform": "^6.1",
         "drush/drush": "^11.0"

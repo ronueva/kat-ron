@@ -26,9 +26,22 @@ function katron_preprocess_page(&$variables) {
   if (strpos($path, "taxonomy") !== FALSE) {
     $variables["hero"] = views_embed_view("frontpage", "hero_block");
 
-//    $field_hero_video = Node::load(1)->get("field_hero_video")->getString();
-//    $media_entity_load = Media::load($field_hero_video);
-//    $variables["hero"]["hero_video"] = \Drupal::service('file_url_generator')->generateAbsoluteString($media_entity_load->field_media_video_file->entity->getFileUri());
+    $result = [];
+    foreach (\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree("entourage") as $item) {
+      $parents = array_reverse(\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadAllParents($item->tid), TRUE);
+      $r = &$result;
+      foreach ($parents as $k => $v) {
+        if (isset($r[$k])) {
+          $r[$k] = array_replace($r[$k], [$k => $v->label()]);
+        }
+        else {
+          $r[$k] = [$k => $v->label()];
+        }
+        $r = &$r[$k];
+      }
+    }
+
+    $variables["entourage"] = $result;
   }
 }
 

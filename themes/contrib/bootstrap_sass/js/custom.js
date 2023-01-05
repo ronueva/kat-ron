@@ -28,7 +28,7 @@
         infinite: true,
         speed: 0,
         useCSS: true,
-        autoplay: true,
+        // autoplay: true,
         autoplaySpeed: 900,
         useTransform: true,
         arrows: false,
@@ -38,6 +38,49 @@
         draggable: false,
         accessibility: false,
       })
+
+      $(".field--name-field-images-carousel").slick({
+        infinite: true,
+        useTransform: true,
+        lazyLoad: true
+      })
+
+      $('.field--name-field-accommodation-images').slick({
+        infinite: false,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        responsive: [
+          {
+            breakpoint: 1201,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 993,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 769,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 576,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      });
 
       $("#submit-rsvp").on("click", function () {
         if ($(this).prop("disabled")) {
@@ -67,27 +110,24 @@
             group: groupId,
             invitees: responses
           })
+        }).then((res) => {
+          if (res.status == 200) {
+            $(this).hide()
+            $("input.invitee").prop( "disabled", true );
+          } else {
+            console.log(res)
+          }
         })
 
       })
 
       let video = $(".hero-video video")
 
-      if (isSafari) {
-        video.get(0).controls = true
-        video.get(0).muted = false
-      } else {
-        video.get(0).controls = false
-        video.get(0).muted = true
-        video.get(0).autoplay = true
-      }
-
       setTimeout(() => {
         $(".scroll-down").show()
       }, 10000)
 
       $(".scroll-down").on("click", function () {
-        console.log("here")
         $([document.documentElement, document.body]).animate({
           scrollTop: $("#title-area").offset().top
         });
@@ -102,6 +142,10 @@
           triggeredAutoScrollDown = true
         }
         this.play();
+      })
+
+      $(".slick-slide").on("click", ".paragraph--type--accommodations", function () {
+        $(this).find("a")[0].click()
       })
 
     }
