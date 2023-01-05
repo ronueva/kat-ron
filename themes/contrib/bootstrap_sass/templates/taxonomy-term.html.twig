@@ -3,7 +3,7 @@
     <div class="form-check custom-checkbox px-0 ">
       <input class="form-check-input invitee" type="checkbox"
         {% if content.field_status['#items'].value != 1 %} disabled {% endif %}
-        {% if invitee.field_present.value == 1 %} checked {% endif %}
+        {% if invitee.field_present.value == 1 %} checked disabled {% endif %}
              id="invitee_{{ invitee.tid.value }}"
              data-id="{{ invitee.tid.value }}">
       <label class="form-check-label py-2 py-sm-4 ps-5 w-100" for="invitee_{{ invitee.tid.value }}">

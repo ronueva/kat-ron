@@ -98,6 +98,9 @@
             id: $(invitee).data("id"),
             response: invitee.checked
           }
+          if (!$(invitee).prop("disabled") && $(invitee).prop("checked")) {
+            $(invitee).prop( "disabled", true )
+          }
         })
 
         fetch("/api/katron-invitation", {
@@ -112,8 +115,7 @@
           })
         }).then((res) => {
           if (res.status == 200) {
-            $(this).hide()
-            $("input.invitee").prop( "disabled", true );
+            $(this).prop("disabled", false)
           } else {
             console.log(res)
           }

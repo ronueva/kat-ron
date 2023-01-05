@@ -51,10 +51,19 @@ class InvitationResource extends ResourceBase {
 
     $invitees = $data["invitees"];
 
+    $allPresent = TRUE;
+
     if ($data["group"]) {
       $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($data["group"]);
 
-      $term->set("field_status", FALSE);
+      foreach ($invitees as $invitee) {
+        if (!$invitee["response"]) {
+          $allPresent = FALSE;
+          break;
+        }
+      }
+
+      $term->set("field_status", !$allPresent);
 
       $term->save();
     }
@@ -70,7 +79,7 @@ class InvitationResource extends ResourceBase {
     }
 
     // Return the newly created record in the response body.
-    return new ModifiedResourceResponse(['result' => (bool) $saved], 200);
+    return new ModifiedResourceResponse(['result' => (bool) $saved, 'extra' => ['all_present' => !$allPresent]], 200);
   }
 
 }
