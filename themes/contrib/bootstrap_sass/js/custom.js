@@ -134,16 +134,19 @@
           scrollTop: $("#title-area").offset().top
         });
         triggeredAutoScrollDown = true
+
+        console.log("clicked triggeredAutoScrollDown")
       })
 
       video.on("ended", function () {
+        console.log("ended")
         if (!triggeredAutoScrollDown) {
+          console.log("triggeredAutoScrollDown")
           $([document.documentElement, document.body]).animate({
             scrollTop: $("#title-area").offset().top
-          }, 1000);
+          }, 800);
           triggeredAutoScrollDown = true
         }
-        this.play();
       })
 
       $(".slick-slide").on("click", ".paragraph--type--accommodations", function () {
