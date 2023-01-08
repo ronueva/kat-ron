@@ -53,7 +53,7 @@ class InvitationResource extends ResourceBase {
 
     $allPresent = TRUE;
 
-    if ($data["group"]) {
+    /*if ($data["group"]) {
       $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($data["group"]);
 
       foreach ($invitees as $invitee) {
@@ -66,9 +66,13 @@ class InvitationResource extends ResourceBase {
       $term->set("field_status", !$allPresent);
 
       $term->save();
-    }
+    }*/
 
     foreach ($invitees as $invitee) {
+
+      if (!$invitee) {
+        continue;
+      }
 
       $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($invitee["id"]);
 

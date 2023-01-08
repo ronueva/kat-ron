@@ -94,12 +94,15 @@
         let groupId = $(this).parent("div.content").data("id")
 
         invitees.map((key, invitee) => {
-          responses[key] = {
-            id: $(invitee).data("id"),
-            response: invitee.checked
-          }
-          if (!$(invitee).prop("disabled") && $(invitee).prop("checked")) {
-            $(invitee).prop( "disabled", true )
+          if (invitee.checked === true) {
+            responses[key] = {
+              id: $(invitee).data("id"),
+              response: invitee.checked
+            }
+
+            if (!$(invitee).prop("disabled") && $(invitee).prop("checked")) {
+              $(invitee).prop( "disabled", true )
+            }
           }
         })
 
@@ -125,23 +128,15 @@
 
       let video = $(".hero-video video")
 
-      setTimeout(() => {
-        $(".scroll-down").show()
-      }, 10000)
-
       $(".scroll-down").on("click", function () {
         $([document.documentElement, document.body]).animate({
           scrollTop: $("#title-area").offset().top
         });
         triggeredAutoScrollDown = true
-
-        console.log("clicked triggeredAutoScrollDown")
       })
 
       video.on("ended", function () {
-        console.log("ended")
         if (!triggeredAutoScrollDown) {
-          console.log("triggeredAutoScrollDown")
           $([document.documentElement, document.body]).animate({
             scrollTop: $("#title-area").offset().top
           }, 800);
