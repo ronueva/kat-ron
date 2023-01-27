@@ -36,6 +36,7 @@
         "drupal/taxonomy_import": "^2.0",
         "drupal/views_bulk_edit": "^2.8",
         "drupal/views_bulk_operations": "^4.1",
+        "drupal/views_data_export": "^1.2",
         "drupal/webform": "^6.1",
         "drush/drush": "^11.0"
     },
