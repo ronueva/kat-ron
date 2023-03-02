@@ -2,7 +2,7 @@
   {% for invitee in invitees %}
     <div class="form-check custom-checkbox px-0 ">
       <input class="form-check-input invitee" type="checkbox"
-        {% if content.field_status['#items'].value != 1 %} disabled {% endif %}
+        {% if content.field_status.value != 1 %} disabled {% endif %}
         {% if invitee.field_present.value == 1 %} checked disabled {% endif %}
              id="invitee_{{ invitee.tid.value }}"
              data-id="{{ invitee.tid.value }}">
